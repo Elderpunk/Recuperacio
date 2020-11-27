@@ -1,0 +1,159 @@
+/* GENERAL */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+
+    display: grid;
+    grid-template-columns:1fr 1fr ;
+    grid-template-rows:100px 1fr;
+}
+
+/*No mostrar */
+input, .menu__links{
+    display: none;
+}
+
+.header{
+    grid-column:1/3;
+    grid-row: 1/2;
+    display: grid;
+    grid-template-columns:20vw 20vw auto 40vw;
+}
+.header__menu{
+grid-column:3/4;
+
+}
+
+/* Comenzamos con el movil cuando checked entonces ul tendra los valores siguientes */
+
+input:checked ~ ul{
+    width: 100vw;
+    height: 100vh;
+    background-color: #256183;
+    position: absolute;
+    left: 0;
+    top:10;
+    padding: 4rem;
+    display: flex;/*colocamos los links*/
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items:center;
+    list-style-type: none;
+    line-height: 500%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+
+h1{
+    font-size: 90px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;}
+p{
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+        color: #ffffff;}
+a{
+    font-size: 16px;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
+
+/* MOBIL */
+@media only screen and 
+(min-device-width: 362px) and (max-width: 500px) and (orientation: portrait){
+    .main__texto,.footer,figure{
+        display:none;
+        }
+}
+
+/* TABLET */
+@media only screen and 
+(min-device-width: 768px) and (max-width: 1100px) and (orientation: portrait){
+    input:checked ~ ul.menu__links {
+        left: 20vw;/*lo movemos a la derecha la cortina*/
+        align-items:flex-start;/*colocamos los links*/
+        position: absolute;
+        top:0;
+    }
+    body{
+        background-color:#ADC6D4 ;
+    }
+    .iconitos{
+        display: inline-block;
+        padding-right: 1rem;
+    }
+
+    .header__menu{
+        grid-column:1/2;
+        padding:1rem 1.5rem;
+        }
+    .main__texto{
+        display:none;
+        }
+    
+}
+
+/* DESKTOP */
+@media only screen and 
+(min-width: 1100px){
+    body{
+        display: grid;
+        grid-template-columns:1fr 1fr ;
+        grid-template-rows:100px 1fr;
+    }
+    .derecha{
+        grid-column:2/3;
+        grid-row: 1/4;
+        width:50vw;
+        height:100vh;
+        background-color:#4A92BA;
+    }
+    .izquierda{
+        grid-column:1/2;
+        grid-row: 1/4;
+        width:50vw;
+        height:100vh;
+        background-color:#ADC6D4;
+    }
+    /*Desaparece la hamburguesa para aparecer el menu*/
+    .menu__icono img,.iconitos{
+        display: none;
+    }
+    .menu__links{
+        list-style-type: none;
+        display: flex;
+        justify-content: space-between;
+        align-items:flex-end;
+        padding-top: 4rem;
+        padding-right: 4rem;
+    }
+
+    .header__menu{
+        grid-column: 3/5;
+    }
+    .contenedor{
+        grid-column: 1/3;
+        grid-row: 2/4;
+        display: grid;
+        grid-template-columns:1fr 1fr;
+        grid-template-rows:40% 60%;
+    }
+    .main__texto{
+        grid-column: 1/2;
+        grid-row: 1/2;
+        padding-left: 4rem;
+    }
+    figure{
+        grid-column: 1/3;
+        grid-row: 2/3;
+        position: relative;
+        top:-550px;
+        left: 300px;
+    }
+    
